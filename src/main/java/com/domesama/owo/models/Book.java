@@ -13,6 +13,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @Data
@@ -22,7 +23,9 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @EqualsAndHashCode.Exclude
     private String title;
+    @EqualsAndHashCode.Exclude
     private String isbn;
 
     @ManyToMany
@@ -34,89 +37,20 @@ public class Book {
         this.isbn = isbn;
     }
 
-    // public Book() {
+    // @Override
+    // public boolean equals(Object o) {
+    // if (o == this)
+    // return true;
+    // if (!(o instanceof Book)) {
+    // return false;
     // }
-
-    // public Book(Long id, String title, String isbn, Set<Author> authors) {
-    // this.id = id;
-    // this.title = title;
-    // this.isbn = isbn;
-    // this.authors = authors;
+    // Book book = (Book) o;
+    // return Objects.equals(id, book.id);
     // }
-
-    // public Long getId() {
-    // return this.id;
-    // }
-
-    // public void setId(Long id) {
-    // this.id = id;
-    // }
-
-    // public String getTitle() {
-    // return this.title;
-    // }
-
-    // public void setTitle(String title) {
-    // this.title = title;
-    // }
-
-    // public String getIsbn() {
-    // return this.isbn;
-    // }
-
-    // public void setIsbn(String isbn) {
-    // this.isbn = isbn;
-    // }
-
-    // public Set<Author> getAuthors() {
-    // return this.authors;
-    // }
-
-    // public void setAuthors(Set<Author> authors) {
-    // this.authors = authors;
-    // }
-
-    // public Book id(Long id) {
-    // setId(id);
-    // return this;
-    // }
-
-    // public Book title(String title) {
-    // setTitle(title);
-    // return this;
-    // }
-
-    // public Book isbn(String isbn) {
-    // setIsbn(isbn);
-    // return this;
-    // }
-
-    // public Book authors(Set<Author> authors) {
-    // setAuthors(authors);
-    // return this;
-    // }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Book)) {
-            return false;
-        }
-        Book book = (Book) o;
-        return Objects.equals(id, book.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
 
     // @Override
-    // public String toString() {
-    // return "{" + " id='" + getId() + "'" + ", title='" + getTitle() + "'" + ",
-    // isbn='" + getIsbn() + "'"
-    // + ", authors='" + getAuthors() + "'" + "}";
+    // public int hashCode() {
+    // return Objects.hashCode(id);
     // }
 
 }
