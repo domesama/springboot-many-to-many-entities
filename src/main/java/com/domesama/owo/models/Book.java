@@ -28,9 +28,13 @@ public class Book {
     @EqualsAndHashCode.Exclude
     private String isbn;
 
+    @EqualsAndHashCode.Exclude
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "authors"))
     private Set<Author> authors = new HashSet<>();
+
+    @EqualsAndHashCode.Exclude
+    private Set<Publisher> publishers = new HashSet<>();
 
     public Book(String title, String isbn) {
         this.title = title;
