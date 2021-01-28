@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -32,14 +33,20 @@ public class Book {
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "authors"))
     private Set<Author> authors = new HashSet<>();
-
+    // This refers to the current class (Book) having many mapped to a single
+    // following Entity (Publisher)
     @EqualsAndHashCode.Exclude
-    private Set<Publisher> publishers = new HashSet<>();
+    @ManyToOne
+    private Publisher publisher;
 
     public Book(String title, String isbn) {
         this.title = title;
         this.isbn = isbn;
     }
+
+    // public void setPublishersOwO(Publisher myPublisher) {
+    // this.publishers.add(myPublisher);
+    // }
 
     // @Override
     // public boolean equals(Object o) {
