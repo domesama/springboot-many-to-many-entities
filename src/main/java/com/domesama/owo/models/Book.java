@@ -15,9 +15,11 @@ import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Book {
 
     @Id
@@ -33,6 +35,7 @@ public class Book {
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "authors"))
     private Set<Author> authors = new HashSet<>();
+
     // This refers to the current class (Book) having many mapped to a single
     // following Entity (Publisher)
     @EqualsAndHashCode.Exclude
