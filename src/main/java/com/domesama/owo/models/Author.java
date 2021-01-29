@@ -12,18 +12,19 @@ import javax.persistence.ManyToMany;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @EqualsAndHashCode.Exclude
     private String firstName;
-    @EqualsAndHashCode.Exclude
+
     private String lastName;
 
     @EqualsAndHashCode.Exclude
@@ -34,9 +35,6 @@ public class Author {
 
         this.firstName = firstName;
         this.lastName = lastName;
-    }
-
-    public Author() {
     }
 
     public Author(Long id, String firstName, String lastName, Set<Book> books) {

@@ -26,9 +26,8 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @EqualsAndHashCode.Exclude
     private String title;
-    @EqualsAndHashCode.Exclude
+
     private String isbn;
 
     @EqualsAndHashCode.Exclude

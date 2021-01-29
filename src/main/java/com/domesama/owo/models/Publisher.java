@@ -24,15 +24,14 @@ public class Publisher {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @EqualsAndHashCode.Exclude
     private String name;
-    @EqualsAndHashCode.Exclude
+
     private String addressLine;
-    @EqualsAndHashCode.Exclude
+
     private String city;
-    @EqualsAndHashCode.Exclude
+
     private String state;
-    @EqualsAndHashCode.Exclude
+
     private String postalCode;
 
     // This refers to the current class being the entity that holds many of//

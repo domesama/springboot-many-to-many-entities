@@ -24,16 +24,15 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Publisher myPublisher = new Publisher();
+        // Publisher myPublisher = new Publisher();
 
-        myPublisher.setAddressLine("Somewhere OwO");
-        myPublisher.setCity("Some City");
-        myPublisher.setName("Publisher name goes bruhhh");
-        myPublisher.setPostalCode("postalCode");
-        myPublisher.setState("Skrr");
+        // myPublisher.setAddressLine("Somewhere OwO");
+        // myPublisher.setCity("Some City");
+        // myPublisher.setName("Publisher name goes bruhhh");
+        // myPublisher.setPostalCode("postalCode");
+        // myPublisher.setState("Skrr");
 
-        // Publisher myPublisher = new Publisher("OwOPublisher", "42069 UwUStreets",
-        // "Somewhere", "UwUState", "123520");
+        Publisher myPublisher = new Publisher("OwOPublisher", "42069 UwUStreets", "Somewhere", "UwUState", "123520");
         publisherRepository.save(myPublisher);
         System.out.println("-------------------------------STARTING--------------------------------");
         Author owo = new Author("OwO", "UwU");
