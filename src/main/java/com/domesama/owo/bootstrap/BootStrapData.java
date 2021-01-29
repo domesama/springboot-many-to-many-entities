@@ -67,5 +67,8 @@ public class BootStrapData implements CommandLineRunner {
         System.out.println("Started in Bootstrap");
         System.out.println("Number Of Books " + bookRepository.count());
         System.out.println("Publisher Number of Books " + myPublisher.getBooks().size());
+        // System.out.println(
+        // "Here's some object: " + owo.toString() + "\n" + owoBook.toString() + "\n" +
+        // myPublisher.toString());
     }
 }
