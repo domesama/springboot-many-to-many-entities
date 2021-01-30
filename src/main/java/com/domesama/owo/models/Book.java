@@ -13,9 +13,13 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -31,14 +35,19 @@ public class Book {
     private String isbn;
 
     @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     @ManyToMany
+    @JsonIgnore
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "authors"))
     private Set<Author> authors = new HashSet<>();
 
     // This refers to the current class (Book) having many mapped to a single
     // following Entity (Publisher)
     @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     @ManyToOne
+    @JsonIgnore
+    // @JsonManagedReference
     private Publisher publisher;
 
     public Book(String title, String isbn) {

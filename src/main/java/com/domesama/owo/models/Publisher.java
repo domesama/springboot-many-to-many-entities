@@ -11,9 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -37,8 +41,11 @@ public class Publisher {
     // This refers to the current class being the entity that holds many of//
     // thefollowing terms
     @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "publisher_id")
+    // @JsonIgnore
+    // @JsonBackReference
     private Set<Book> books = new HashSet<>();
 
     public Publisher(String name, String addressLine, String city, String state, String postalCode) {
